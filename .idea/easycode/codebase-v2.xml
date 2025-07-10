@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.obiscr.chatgpt.settings.EasyCodeState">
+    <option name="projectFiles" value="$PROJECT_DIR$/common/src/main/java/com/example/result/Result.java;C:/Users/jingy/IdeaProjects/PractiseTracker/common/pom.xml;C:/Users/jingy/IdeaProjects/PractiseTracker/pojo/src/main/java/com/example/pojo/DTO/PracticeTimeRequestDTO.java;C:/Users/jingy/IdeaProjects/PractiseTracker/pojo/src/main/java/com/example/pojo/entity/PracticeTimeRecord.java;C:/Users/jingy/IdeaProjects/PractiseTracker/pojo/pom.xml;C:/Users/jingy/IdeaProjects/PractiseTracker/server/src/main/java/com/example/server/controller/PracticeController.java;C:/Users/jingy/IdeaProjects/PractiseTracker/server/src/main/java/com/example/server/repository/PracticeTimeRecordRepository.java;C:/Users/jingy/IdeaProjects/PractiseTracker/server/pom.xml;C:/Users/jingy/IdeaProjects/PractiseTracker/pom.xml" />
+  </component>
+</project>
