@@ -10,6 +10,8 @@ package com.example.server.mapper;
 import com.example.pojo.entity.PracticeTimeRecord;
 import org.apache.ibatis.annotations.*;
 
+import java.time.LocalDate;
+
 @Mapper
 public interface PractiseTimeRecordMapper {
     /**
@@ -24,6 +26,9 @@ public interface PractiseTimeRecordMapper {
     @Select("SELECT * FROM practice_time_record WHERE id = #{id}")
     PracticeTimeRecord findById(Long id);
 
+    @Select("SELECT * FROM practice_time_record WHERE user_id = #{userId} AND music_id = #{musicId} AND bpm = #{bpm} AND date = #{date}")
+    PracticeTimeRecord findByUniqueRecord(@Param("userId") String userId, @Param("musicId") String musicId, @Param("bpm") Integer bpm, @Param("date") LocalDate date);
+
     @Update("UPDATE practice_time_record SET duration = #{duration}, updated_at = #{updatedAt} WHERE id = #{id}")
-    void updateDuration(PracticeTimeRecord record);
+    void updateDuration(@Param("id") Long id, @Param("duration") Long duration, @Param("updatedAt") LocalDate updatedAt);
 }

@@ -35,7 +35,7 @@ public class PracticeController {
             record.setDuration(dto.getDuration());
             record.setDate(LocalDate.now());
             record.setUserId("current_user_id");
-
+            record.setUpdatedAt(LocalDate.now());
             System.out.println("Processing record: " + dto);
             return recordService.createRecord(record);
         }).toList();
