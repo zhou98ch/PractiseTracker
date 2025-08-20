@@ -14,5 +14,5 @@ public class PracticeTimeRecord {
     private Integer bpm;
     private Long duration; // counted in seconds
     private LocalDate date;
-    private LocalDateTime updatedAt;
+    private LocalDate updatedAt;
 }
