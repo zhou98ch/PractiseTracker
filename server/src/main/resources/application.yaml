@@ -19,3 +19,9 @@ logging:
   level:
     com.example: debug
     org.mybatis: debug
+
+property:
+  jwt:
+    admin-secret-key: music
+    admin-ttl: 7200000
+    admin-token-name: token
