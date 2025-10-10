@@ -2,6 +2,7 @@ package com.example.server.interceptor;
 
 import Utils.JwtUtil;
 import constant.JwtClaimsConstant;
+import context.UserContext;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -37,10 +38,11 @@ public class JwtTokenInterceptor implements HandlerInterceptor {
 
         //2、testify the token
         try {
-            log.info("JWT token:{}", token);
+//            log.info("JWT token:{}", token);
             Claims claims = JwtUtil.parseJWT(jwtProperties.getAdminSecretKey(), token);
             Long userId = Long.valueOf(claims.get(JwtClaimsConstant.USER_ID).toString());
-            log.info("current user id：", userId);
+//            log.info("current user id：", userId);
+            UserContext.setCurrentId(userId);
             //3、succeed, then pass
             return true;
         } catch (Exception ex) {
