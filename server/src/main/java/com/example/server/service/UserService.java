@@ -2,7 +2,9 @@ package com.example.server.service;
 
 import com.example.pojo.DTO.UserDTO;
 import com.example.pojo.DTO.UserLoginDTO;
+import com.example.pojo.DTO.UserPageQueryDTO;
 import com.example.pojo.entity.User;
+import com.example.result.PageResult;
 import com.example.server.mapper.UserMapper;
 import constant.MessageConstant;
 import exception.BaseException;
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
 import java.time.LocalDate;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -36,5 +40,10 @@ public class UserService {
         }
 
         return user;
+    }
+
+    public PageResult query(UserPageQueryDTO userPageQueryDTO) {
+        PageResult result = userMapper.selectByPage(userPageQueryDTO);
+        return result;
     }
 }

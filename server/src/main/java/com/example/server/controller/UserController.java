@@ -3,6 +3,7 @@ package com.example.server.controller;
 import Utils.JwtUtil;
 import com.example.pojo.DTO.UserDTO;
 import com.example.pojo.DTO.UserLoginDTO;
+import com.example.pojo.DTO.UserPageQueryDTO;
 import com.example.pojo.VO.UserLoginVO;
 import com.example.pojo.entity.User;
 import com.example.result.Result;
@@ -62,5 +63,10 @@ public class UserController {
     public Result save(@RequestBody UserDTO userDTO) {
         userService.save(userDTO);
         return Result.success();
+    }
+
+    @PostMapping("/query")
+    public Result query(@RequestBody UserPageQueryDTO userPageQueryDTO) {
+        return Result.success(userService.query(userPageQueryDTO));
     }
 }
