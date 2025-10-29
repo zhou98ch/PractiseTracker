@@ -1,0 +1,9 @@
+<select id="selectByPage" resultType="com.example.pojo.entity.User">
+    select * from users
+    <where>
+        <if test="name != null and name != ''">
+            and name like concat('%',#{name},'%')
+        </if>
+    </where>
+    order by createdDate desc
+</select>
