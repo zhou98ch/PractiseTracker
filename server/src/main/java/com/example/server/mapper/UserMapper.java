@@ -2,10 +2,11 @@ package com.example.server.mapper;
 
 import com.example.pojo.DTO.UserPageQueryDTO;
 import com.example.pojo.entity.User;
-import com.example.result.PageResult;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 @Mapper
 public interface  UserMapper {
@@ -19,7 +20,6 @@ public interface  UserMapper {
 
     @Select("select * from users where username = #{username}")
     User selectByUsername(String username);
-
-    @Select("select * from users limit #{pageSize} offset #{pageNum}")
-    PageResult selectByPage(UserPageQueryDTO userPageQueryDTO);
+    
+    List<User> selectByPage(UserPageQueryDTO userPageQueryDTO);
 }

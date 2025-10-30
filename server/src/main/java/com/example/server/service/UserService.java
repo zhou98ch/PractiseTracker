@@ -43,7 +43,19 @@ public class UserService {
     }
 
     public PageResult query(UserPageQueryDTO userPageQueryDTO) {
-        PageResult result = userMapper.selectByPage(userPageQueryDTO);
-        return result;
+//        PageResult result = userMapper.selectByPage(userPageQueryDTO);
+//        return result;
+//        PageHelper.startPage(userPageQueryDTO.getPage(), userPageQueryDTO.getPageSize());
+//        Page<User> pages = userMapper.selectByPage(userPageQueryDTO);
+//        long total = pages.getTotal();
+//        List<User> users = pages.getResult();
+//        return new PageResult(total, users);
+         List<User> users = userMapper.selectByPage(userPageQueryDTO);
+        long total = users.size();
+        return new PageResult(total, users);
+
+
+
+
     }
 }
