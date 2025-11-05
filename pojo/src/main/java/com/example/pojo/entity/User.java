@@ -13,5 +13,5 @@ public class User implements Serializable {
     private String password;
     private String email;
     private LocalDate createdDate;
-    private LocalDate updatedDate;
+    private LocalDate updatedDate; // TODO Migrate to LocalDateTime
 }
