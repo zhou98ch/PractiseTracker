@@ -20,6 +20,9 @@ public interface  UserMapper {
 
     @Select("select * from users where username = #{username}")
     User selectByUsername(String username);
-    
+
     List<User> selectByPage(UserPageQueryDTO userPageQueryDTO);
+
+    @Select("select * from users where id = #{id}")
+    User selectById(Long id);
 }

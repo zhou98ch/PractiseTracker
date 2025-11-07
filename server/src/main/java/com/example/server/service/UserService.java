@@ -58,4 +58,12 @@ public class UserService {
 
 
     }
+
+    public User getById(Long id) {
+        User user = userMapper.selectById(id);
+        if(user==null){
+            throw new BaseException(MessageConstant.USER_NOT_FOUND);
+        }
+        return user;
+    }
 }

@@ -69,4 +69,11 @@ public class UserController {
     public Result query(@RequestBody UserPageQueryDTO userPageQueryDTO) {
         return Result.success(userService.query(userPageQueryDTO));
     }
+
+    @GetMapping("/{id}")
+    public Result<User> getById(@PathVariable Long id){
+        User user = userService.getById(id);
+        return Result.success(user);
+    }
+
 }
