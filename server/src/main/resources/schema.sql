@@ -15,3 +15,15 @@ CREATE TABLE users (
     createdDate DATE,
     updatedDate DATE
 );
+
+CREATE TABLE song (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    artist VARCHAR(255),
+    description TEXT,
+    isDeleted BOOLEAN,
+    isArchived BOOLEAN,
+    createdUserId BIGINT,
+    createdDate DATE,
+    updatedDate DATE
+);
