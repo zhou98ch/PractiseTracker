@@ -23,6 +23,7 @@ CREATE TABLE song (
     description TEXT,
     isDeleted BOOLEAN,
     isArchived BOOLEAN,
+    isPrivate BOOLEAN,
     createdUserId BIGINT,
     createdDate DATE,
     updatedDate DATE

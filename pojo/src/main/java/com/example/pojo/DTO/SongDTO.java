@@ -10,5 +10,6 @@ public class SongDTO implements Serializable {
     private String name;
     private String artist;
     private String description;
+    private int isPrivate;
     private Long createdUserId;
 }

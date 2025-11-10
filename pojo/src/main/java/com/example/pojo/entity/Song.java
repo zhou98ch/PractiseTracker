@@ -13,6 +13,7 @@ public class Song implements Serializable {
     private String description;
     private int isDeleted;
     private int isArchived;
+    private int isPrivate;
     private Long createdUserId;
     private LocalDate createdDate;
     private LocalDate updatedDate; // TODO Migrate to LocalDateTime

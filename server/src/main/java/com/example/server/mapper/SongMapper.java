@@ -12,7 +12,7 @@ public interface SongMapper {
      *
      * @param song
      */
-    @Insert("insert into song (name, artist, description, created_user_id, is_archived, is_deleted, created_date, updated_date) " +
-            "values (#{name}, #{artist}, #{description}, #{createdUserId}, #{isArchived}, #{isDeleted}, #{createdDate}, #{updatedDate})")
+    @Insert("insert into song (name, artist, description, created_user_id, is_archived, is_deleted, is_private, created_date, updated_date) " +
+            "values (#{name}, #{artist}, #{description}, #{createdUserId}, #{isArchived}, #{isDeleted}, #{isPrivate}, #{createdDate}, #{updatedDate})")
     int insert(Song song);
 }
