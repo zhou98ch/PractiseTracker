@@ -27,4 +27,11 @@ public class SongService {
     public void deletebyID(Long id) {
         songMapper.deletebyID(id, LocalDate.now());
     }
+
+    public void update(SongDTO songDTO) {
+        Song song = new Song();
+        BeanUtils.copyProperties(songDTO, song);
+        song.setUpdatedDate(LocalDate.now());
+        songMapper.update(song);
+    }
 }

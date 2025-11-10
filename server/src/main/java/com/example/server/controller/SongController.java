@@ -22,7 +22,11 @@ public class SongController {
         songService.save(songDTO);
         return Result.success();
     }
-
+    @PostMapping("/update")
+    public Result update(@RequestBody SongDTO songDTO) {
+        songService.update(songDTO);
+        return Result.success();
+    }
     @DeleteMapping("/delete/{id}")
     public Result deletebyID(@PathVariable Long id) {
         songService.deletebyID(id);

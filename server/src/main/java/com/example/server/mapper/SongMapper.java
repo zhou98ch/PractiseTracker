@@ -21,4 +21,6 @@ public interface SongMapper {
 
     @Update("update song set is_deleted = 1, updated_date = #{updatedDate} where id = #{id}")
     void deletebyID(Long id, LocalDate updatedDate);
+     @Update("update song set name = #{name}, artist = #{artist}, description = #{description}, is_archived = #{isArchived}, is_private = #{isPrivate}, updated_date = #{updatedDate} where id = #{id}")
+    void update(Song song);
 }
