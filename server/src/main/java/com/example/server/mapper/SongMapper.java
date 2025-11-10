@@ -3,6 +3,9 @@ package com.example.server.mapper;
 import com.example.pojo.entity.Song;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
+
+import java.time.LocalDate;
 
 @Mapper
 public interface SongMapper {
@@ -15,4 +18,7 @@ public interface SongMapper {
     @Insert("insert into song (name, artist, description, created_user_id, is_archived, is_deleted, is_private, created_date, updated_date) " +
             "values (#{name}, #{artist}, #{description}, #{createdUserId}, #{isArchived}, #{isDeleted}, #{isPrivate}, #{createdDate}, #{updatedDate})")
     int insert(Song song);
+
+    @Update("update song set is_deleted = 1, updated_date = #{updatedDate} where id = #{id}")
+    void deletebyID(Long id, LocalDate updatedDate);
 }

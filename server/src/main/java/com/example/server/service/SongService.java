@@ -23,4 +23,8 @@ public class SongService {
         song.setIsDeleted(0);
         songMapper.insert(song);
     }
+
+    public void deletebyID(Long id) {
+        songMapper.deletebyID(id, LocalDate.now());
+    }
 }

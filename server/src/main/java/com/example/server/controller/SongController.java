@@ -22,4 +22,10 @@ public class SongController {
         songService.save(songDTO);
         return Result.success();
     }
+
+    @DeleteMapping("/delete/{id}")
+    public Result deletebyID(@PathVariable Long id) {
+        songService.deletebyID(id);
+        return Result.success();
+    }
 }
