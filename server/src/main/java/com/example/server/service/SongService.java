@@ -29,9 +29,14 @@ public class SongService {
     }
 
     public void update(SongDTO songDTO) {
-        Song song = new Song();
-        BeanUtils.copyProperties(songDTO, song);
-        song.setUpdatedDate(LocalDate.now());
-        songMapper.update(song);
+        Song song = songMapper.selectById(songDTO.getId());
+        if(song == null) {
+            throw new IllegalArgumentException("Song not found");
+        }
+        else{
+            BeanUtils.copyProperties(songDTO, song);
+            song.setUpdatedDate(LocalDate.now());
+            songMapper.update(song);
+        }
     }
 }

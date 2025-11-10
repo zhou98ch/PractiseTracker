@@ -3,6 +3,7 @@ package com.example.server.mapper;
 import com.example.pojo.entity.Song;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import java.time.LocalDate;
@@ -23,4 +24,7 @@ public interface SongMapper {
     void deletebyID(Long id, LocalDate updatedDate);
      @Update("update song set name = #{name}, artist = #{artist}, description = #{description}, is_archived = #{isArchived}, is_private = #{isPrivate}, updated_date = #{updatedDate} where id = #{id}")
     void update(Song song);
+
+    @Select("select from song where id=#{id}")
+    Song selectById(Long id);
 }
