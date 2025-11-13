@@ -20,11 +20,26 @@ CREATE TABLE song (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255),
     artist VARCHAR(255),
+    categoryId BIGINT,
+    FOREIGN KEY (categoryId) REFERENCES category(id),
     description TEXT,
     isDeleted BOOLEAN,
     isArchived BOOLEAN,
     isPrivate BOOLEAN,
     createdUserId BIGINT,
+    FOREIGN KEY (createdUserId) REFERENCES users(id),
+    createdDate DATE,
+    updatedDate DATE
+);
+
+CREATE TABLE category (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    description TEXT,
+    isDeleted BOOLEAN,
+    isArchived BOOLEAN,
+    createdUserId BIGINT,
+    FOREIGN KEY (createdUserId) REFERENCES users(id),
     createdDate DATE,
     updatedDate DATE
 );
