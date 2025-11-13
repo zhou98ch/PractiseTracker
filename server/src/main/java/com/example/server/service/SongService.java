@@ -39,4 +39,8 @@ public class SongService {
             songMapper.update(song);
         }
     }
+
+    public Object listByCategory(Long category_id) {
+        return songMapper.listByCategory(category_id);
+    }
 }

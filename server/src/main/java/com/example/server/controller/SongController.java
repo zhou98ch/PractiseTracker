@@ -32,4 +32,9 @@ public class SongController {
         songService.deletebyID(id);
         return Result.success();
     }
+
+    @GetMapping("/list/{category_id}")
+    public Result listByCategory(@PathVariable Long category_id) {
+        return Result.success(songService.listByCategory(category_id));
+    }
 }

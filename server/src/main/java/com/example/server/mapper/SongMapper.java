@@ -27,4 +27,13 @@ public interface SongMapper {
 
     @Select("select from song where id=#{id}")
     Song selectById(Long id);
+
+    /**
+     * list songs by category id
+     *
+     * @param category_id
+     * @return
+     */
+    @Select("select * from song where category_id=#{category_id} order by created_date desc")
+    Object listByCategory(Long category_id);
 }
