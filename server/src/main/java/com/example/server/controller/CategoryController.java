@@ -33,4 +33,8 @@ public class CategoryController {
         categoryService.deletebyID(id);
         return Result.success();
     }
+     @GetMapping("/getAllByUserId/{userId}")
+    public Result getAllByUserId(@PathVariable Long userId) {
+        return Result.success(categoryService.getAll(userId));
+    }
 }

@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Mapper
 public interface CategoryMapper {
@@ -28,4 +29,12 @@ public interface CategoryMapper {
 
     @Select("select from category where id=#{id}")
     Category selectById(Long id);
+
+    /**
+     * select all categories
+     *
+     * @return
+     */
+    @Select("select from category where is_deleted = 0 and created_user_id = #{userId}")
+    List<Category> selectAll(Long userId);
 }

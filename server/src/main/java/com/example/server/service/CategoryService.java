@@ -41,4 +41,8 @@ public class CategoryService {
             categoryMapper.update(category);
         }
     }
+
+    public Object getAll(Long userId) {
+        return categoryMapper.selectAll(userId);
+    }
 }
