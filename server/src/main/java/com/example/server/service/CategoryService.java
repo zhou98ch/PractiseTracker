@@ -19,13 +19,14 @@ public class CategoryService {
     public void save(CategoryDTO categoryDTO) {
         Category category = new Category();
         BeanUtils.copyProperties(categoryDTO, category);
-        category.setCreatedDate(LocalDate.now());
-        category.setUpdatedDate(LocalDate.now());
+//        category.setCreatedDate(LocalDate.now());
+//        category.setUpdatedDate(LocalDate.now());
         category.setIsArchived(0);
         category.setIsDeleted(0);
         categoryMapper.insert(category);
     }
 
+    //TODO how to adapt AUTOFILL to deleteById?
     public void deletebyID(Long id) {
         categoryMapper.deletebyID(id, LocalDate.now());
     }
@@ -37,7 +38,7 @@ public class CategoryService {
         }
         else{
             BeanUtils.copyProperties(categoryDTO, category);
-            category.setUpdatedDate(LocalDate.now());
+//            category.setUpdatedDate(LocalDate.now());
             categoryMapper.update(category);
         }
     }

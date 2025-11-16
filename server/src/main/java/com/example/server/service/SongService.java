@@ -2,6 +2,7 @@ package com.example.server.service;
 
 import com.example.pojo.DTO.SongDTO;
 import com.example.pojo.entity.Song;
+import com.example.server.annotation.AutoFill;
 import com.example.server.mapper.SongMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -17,8 +18,9 @@ public class SongService {
     public void save(SongDTO songDTO) {
         Song song = new Song();
         BeanUtils.copyProperties(songDTO, song);
-        song.setCreatedDate(LocalDate.now());
-        song.setUpdatedDate(LocalDate.now());
+//        replaced by AutoFill
+//        song.setCreatedDate(LocalDate.now());
+//        song.setUpdatedDate(LocalDate.now());
         song.setIsArchived(0);
         song.setIsDeleted(0);
         songMapper.insert(song);
@@ -35,7 +37,8 @@ public class SongService {
         }
         else{
             BeanUtils.copyProperties(songDTO, song);
-            song.setUpdatedDate(LocalDate.now());
+//          replaced by AutoFill
+//            song.setUpdatedDate(LocalDate.now());
             songMapper.update(song);
         }
     }
