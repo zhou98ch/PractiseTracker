@@ -16,3 +16,4 @@ public class PracticeTimeRecord {
     private LocalDate date;
     private LocalDate updatedAt; // TODO Migrate to LocalDateTime
 }
+// TODO: needs to change parameter names to adapt to the Autofill rules

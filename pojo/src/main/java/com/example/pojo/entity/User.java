@@ -15,3 +15,4 @@ public class User implements Serializable {
     private LocalDate createdDate;
     private LocalDate updatedDate; // TODO Migrate to LocalDateTime
 }
+// TODO: adapt to the Autofill
