@@ -26,9 +26,11 @@ public class CategoryService {
         categoryMapper.insert(category);
     }
 
-    //TODO how to adapt AUTOFILL to deleteById?
     public void deletebyID(Long id) {
-        categoryMapper.deletebyID(id, LocalDate.now());
+        Category category = categoryMapper.selectById(id);
+        category.setIsDeleted(1);
+        categoryMapper.update(category);
+//        categoryMapper.deletebyID(id, LocalDate.now());
     }
 
     public void update(CategoryDTO categoryDTO) {
