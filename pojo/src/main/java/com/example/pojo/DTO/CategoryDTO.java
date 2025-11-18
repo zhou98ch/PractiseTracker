@@ -10,5 +10,6 @@ public class CategoryDTO implements Serializable {
     private String name;
     private String description;
     private int isPrivate;
+    private int isArchived;
     private Long createdUserId;
 }

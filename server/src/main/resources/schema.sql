@@ -22,6 +22,7 @@ CREATE TABLE category (
     description TEXT,
     isDeleted BOOLEAN,
     isArchived BOOLEAN,
+    isPrivate BOOLEAN,
     createdUserId BIGINT,
     FOREIGN KEY (createdUserId) REFERENCES users(id),
     createdDate DATE,

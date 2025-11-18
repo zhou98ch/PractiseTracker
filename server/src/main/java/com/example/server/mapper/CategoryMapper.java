@@ -20,7 +20,7 @@ public interface CategoryMapper {
      *
      * @param song
      */
-    @Insert("insert into category (name, description, is_archived, is_deleted, is_private, created_user_id, created_date, updated_date) " +
+    @Insert("insert into category (name, description, isArchived, isDeleted, isPrivate, createdUserId, createdDate, updatedDate) " +
             "values (#{name}, #{description}, #{isArchived}, #{isDeleted}, #{isPrivate}, #{createdUserId}, #{createdDate}, #{updatedDate})")
     @AutoFill(value = OperationType.INSERT)
     int insert(Category song);

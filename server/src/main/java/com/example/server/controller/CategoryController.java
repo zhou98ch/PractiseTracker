@@ -20,8 +20,13 @@ public class CategoryController {
 
     @PostMapping("/create")
     public Result save(@RequestBody CategoryDTO categoryDTO) {
-        categoryService.save(categoryDTO);
-        return Result.success();
+        try {
+            categoryService.save(categoryDTO);
+            return Result.success();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.error("fail：" + e.getMessage());
+        }
     }
     @PostMapping("/update")
     public Result update(@RequestBody CategoryDTO categoryDTO) {
