@@ -2,6 +2,8 @@ package com.example.server.mapper;
 
 import com.example.pojo.DTO.UserPageQueryDTO;
 import com.example.pojo.entity.User;
+import com.example.server.annotation.AutoFill;
+import enumeration.OperationType;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -16,6 +18,7 @@ public interface  UserMapper {
      */
     @Insert("insert into users (username, password, email, createdDate, updatedDate) " +
             "values (#{username}, #{password}, #{email}, #{createdDate}, #{updatedDate})")
+    @AutoFill(value = OperationType.INSERT)
     void insert(User user);
 
     @Select("select * from users where username = #{username}")

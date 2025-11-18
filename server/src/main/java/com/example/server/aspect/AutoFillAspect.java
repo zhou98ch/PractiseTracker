@@ -63,12 +63,21 @@ public class AutoFillAspect {
             try{
                 Method setCreateTime = entity.getClass().getDeclaredMethod(AutoFillConstant.SET_CREATE_TIME, LocalDate.class);
                 Method setUpdateTime = entity.getClass().getDeclaredMethod(AutoFillConstant.SET_UPDATE_TIME, LocalDate.class);
-                Method setCreateUser = entity.getClass().getDeclaredMethod(AutoFillConstant.SET_CREATE_USER, Long.class);
+//                Method setCreateUser = entity.getClass().getDeclaredMethod(AutoFillConstant.SET_CREATE_USER, Long.class);
 
                 //assign value by reflection
                 setCreateTime.invoke(entity, now);
                 setUpdateTime.invoke(entity, now);
-                setCreateUser.invoke(entity, currentId);
+//                setCreateUser.invoke(entity, currentId);
+
+                // check if there exists setCreateUser method, if so, then call it
+                // because Object "User" has no "createdUserID" field
+                try {
+                    Method setCreateUser = entity.getClass().getDeclaredMethod(AutoFillConstant.SET_CREATE_USER, Long.class);
+                    setCreateUser.invoke(entity, currentId);
+                } catch (NoSuchMethodException e) {
+                    // if no setCreateUser method, then ignore
+                }
 
             }catch (Exception e){
                 e.printStackTrace();

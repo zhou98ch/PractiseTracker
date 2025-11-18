@@ -25,8 +25,8 @@ public class UserService {
         User user = new User();
         BeanUtils.copyProperties(userDTO, user);
         user.setPassword(DigestUtils.md5DigestAsHex(userDTO.getPassword().getBytes()));
-        user.setCreatedDate(LocalDate.now());
-        user.setUpdatedDate(LocalDate.now());
+//        user.setCreatedDate(LocalDate.now());
+//        user.setUpdatedDate(LocalDate.now());
         userMapper.insert(user);
     }
 
