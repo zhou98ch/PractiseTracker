@@ -43,4 +43,11 @@ CREATE TABLE song (
     createdDate DATE,
     updatedDate DATE
 );
-
+CREATE TABLE song_category (
+    song_id BIGINT NOT NULL,
+    category_id BIGINT NOT NULL,
+    PRIMARY KEY (song_id, category_id),
+    FOREIGN KEY (song_id) REFERENCES song(id),
+    FOREIGN KEY (category_id) REFERENCES category(id)
+);
+``

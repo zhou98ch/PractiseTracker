@@ -17,7 +17,7 @@ Service Requirements:
 @Data
 public class Song implements Serializable {
     private Long id;
-    private Long categoryId;
+//    private Long categoryId; // move to song_category table, multi-to-multi relationship
     private String name;
     private String artist;
     private String description;
